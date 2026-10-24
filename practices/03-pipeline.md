@@ -8,7 +8,8 @@ With several tasks and agents, nobody knows what is next, what is blocked, or wh
 
 - Keep one `PIPELINE.md` at the repo root. It is the **agent queue**.
 - It lists: build order, merge order, gates, commit checkpoints, resume steps and stop rules.
-- Gates before every merge: `typecheck`, `lint`, `test`, `check:authz`, `check:context`, `check:contracts`.
+- Core gates before every merge: `typecheck`, `lint`, `test`, `check:authz`.
+- Optional gates: `check:contracts` and `check:context`. Add them only when the project is big enough to need them, and drop any gate that never catches a real problem. In a small app, shared contract types already make `typecheck` catch most drift.
 - Agents commit at each checkpoint that passes the gates, and update PIPELINE.md in the same commit.
 - Stop rules say exactly when an agent must stop and ask the owner.
 
@@ -32,6 +33,6 @@ Full template: [templates/PIPELINE.md](../templates/PIPELINE.md).
 Stop and ask the owner when:
 - The task needs something outside HANDOVER.md
 - A gate fails twice for the same reason
-- A test would need to be weakened
+- A test would need to be weakened, skipped or deleted
 - A migration, secret or production setting is involved
 ```

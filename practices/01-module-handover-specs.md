@@ -10,7 +10,7 @@ An agent given a vague prompt fills gaps with guesses. It builds extra features,
 - It covers: purpose, in scope, out of scope, business rules, exact API list with the **required permission per endpoint**, data owned, events, tests and a **Drift** section.
 - Agents read it **before** building and build **nothing outside it**.
 - New scope means: update the spec first, get the owner's OK, then build.
-- Label claims in the spec: **[Fact]**, **[Assumption]**, **[Inference]**, **[Recommendation]**. Only facts and owner-approved items are buildable. See [practice 13](13-requirements-and-decisions.md).
+- For big or risky specs, label claims: **[Fact]**, **[Assumption]**, **[Inference]**, **[Recommendation]**. Only facts and owner-approved items are buildable. See [practice 13](13-requirements-and-decisions.md). For small specs, labels are optional: just mark open questions as **[Assumption]**.
 - When code and spec differ, log it in Drift and fix one of them. Never leave silent drift.
 
 ## Why

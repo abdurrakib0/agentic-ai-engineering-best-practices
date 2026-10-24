@@ -18,12 +18,13 @@ Several agents in one repo step on each other: shared working directories, force
 
 **Safe processes**
 - No `pkill -f`. Kill only by exact PID.
-- At most 2 dev servers running at once.
-- Keep at least 15% CPU and RAM free.
+- Run only the dev servers you need, and stop your own when done.
+- If the machine slows down, pause extra agents instead of adding more.
 
 **Safe code**
 - Never read `.env` or secret files.
-- Never weaken, skip or delete tests to make a gate pass.
+- Never weaken, skip, disable or delete tests to make a gate pass.
+- Never add features, options or files that were not asked for.
 - Migrations are ordered and applied by the lead dev **before** the code that needs them deploys.
 
 ## Why

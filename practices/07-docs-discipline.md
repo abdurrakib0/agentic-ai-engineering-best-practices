@@ -9,10 +9,12 @@ Agents change behavior fast, and docs fall behind. Specs stop matching code, use
 - **README and CHANGELOG** are updated on every major change.
   - The PR template has a checkbox for each.
   - CI posts a warning when `src/` changes but `CHANGELOG.md` does not.
-- **Every user-facing change:**
-  - updates the in-app user manual,
-  - adds a "Latest updates" entry in the app,
-  - sends a notification to affected users.
+- **The CHANGELOG is the single source.** Release notes, the in-app "Latest updates" entry and user notifications are all drawn from it.
+- **Notable user-facing changes only** (new features, changed workflows, removed features):
+  - update the in-app user manual,
+  - add a "Latest updates" entry from the CHANGELOG,
+  - notify affected users.
+- Small fixes and polish get a CHANGELOG line only.
 - **Spec docs** (HANDOVER.md, contracts, DECISIONS.md) are updated in the same PR as the code.
 
 ## Why

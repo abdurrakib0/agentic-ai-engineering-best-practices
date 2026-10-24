@@ -8,8 +8,11 @@
 - [ ] `npm run lint`
 - [ ] `npm test`
 - [ ] `npm run check:authz`
-- [ ] `npm run check:context`
+
+Optional (add only when needed):
+
 - [ ] `npm run check:contracts`
+- [ ] `npm run check:context`
 
 ## Build order
 
@@ -50,7 +53,8 @@ Stop and ask the owner when:
 
 - The task needs something outside the HANDOVER.md scope.
 - A gate fails twice for the same reason.
-- A test would need to be weakened or deleted.
+- A test would need to be weakened, skipped or deleted.
+- The work would add a feature or file nobody asked for.
 - A migration, secret or production setting is involved.
 - Two specs disagree.
 

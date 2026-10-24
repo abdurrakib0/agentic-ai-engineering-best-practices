@@ -9,8 +9,10 @@
 ## Gates
 
 - [ ] typecheck, lint and tests pass
-- [ ] check:authz, check:context and check:contracts pass
-- [ ] No tests were weakened, skipped or deleted
+- [ ] check:authz passes (plus check:contracts and check:context if the project uses them)
+- [ ] No tests were weakened, skipped, disabled or deleted
+- [ ] No features, options or files added that were not asked for
+- [ ] One logical change, with proof it works (a manual check plus one test that fails without it)
 
 ## Security
 
@@ -19,9 +21,9 @@
 - [ ] Inputs are parsed with a zod allowlist schema (no passthrough)
 - [ ] Database reads use an explicit `select` (no secrets, hashes or emails leaked)
 - [ ] Cron or internal routes check a secret and return 404 on a wrong one
-- [ ] Refresh tokens rotate; permission changes invalidate session and cache instantly
+- [ ] Permission changes invalidate session and cache instantly (refresh token rotation only if auth is custom built)
 - [ ] Internal pages (manual, admin) are behind auth
-- [ ] Negative authz tests added (wrong role, no session, other workspace)
+- [ ] Sensitive routes (money, admin, permissions, cross-workspace): negative authz tests added
 - [ ] Public routes are listed in the allowlist with a reason
 
 ## Docs
@@ -30,8 +32,7 @@
 - [ ] CHANGELOG entry added
 - [ ] Spec docs (HANDOVER.md, contracts, DECISIONS.md) match the code
 - [ ] No feature built outside a locked requirement or spec
-- [ ] User-facing change: in-app user manual updated
-- [ ] User-facing change: "Latest updates" entry added and notification sent
+- [ ] Notable user-facing change: in-app manual updated, and "Latest updates" entry and notification drawn from the CHANGELOG
 
 ## Design
 

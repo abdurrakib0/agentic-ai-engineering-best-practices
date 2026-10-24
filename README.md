@@ -39,14 +39,25 @@ The bottleneck is not the model. It is **architecture and process**. This repo c
 | 03 | [Pipeline](practices/03-pipeline.md) | PIPELINE.md as the agent queue, gates and resume steps | Makes work resumable and ordered |
 | 04 | [Grill pass](practices/04-grill-pass.md) | Gap-finding questions before any build prompt | Catches missing rules before they become bugs |
 | 05 | [Glossary](practices/05-glossary.md) | One term per concept, with a synonym check | Keeps names consistent across agents |
-| 06 | [Security gate](practices/06-security-gate.md) | One checklist for every feature, API and page | Closes the holes agents commonly leave |
-| 07 | [Docs discipline](practices/07-docs-discipline.md) | README, CHANGELOG, manual and specs move with code | Docs stay true, users stay informed |
+| 06 | [Security gate](practices/06-security-gate.md) | One guard and one checklist; heavy tests on sensitive routes | Closes the holes agents commonly leave |
+| 07 | [Docs discipline](practices/07-docs-discipline.md) | README, CHANGELOG and specs move with code; CHANGELOG drives user updates | Docs stay true, users stay informed |
 | 08 | [Design first](practices/08-design-first.md) | Mock, pick, lock, then build on one design system | Fewer UI rewrites, consistent look |
 | 09 | [Multi-agent rules](practices/09-multi-agent-rules.md) | Worktrees, branches and safety rules for many agents | Agents stop breaking each other's work |
 | 10 | [Tier-0 agent files](practices/10-tier0-agent-files.md) | Small AGENTS.md with pointers to full rules | Rules always fit in context |
 | 11 | [What I skip](practices/11-what-i-skip.md) | Heavy patterns left out on purpose | Keeps process proportional to project size |
 | 12 | [Branching and release](practices/12-branching-and-release.md) | Hotfixes to main, features to development, joint OK for prod | Safe, predictable releases |
-| 13 | [Requirements and decisions](practices/13-requirements-and-decisions.md) | Lock requirements, log decisions, label every claim | Agents never invent features |
+| 13 | [Requirements and decisions](practices/13-requirements-and-decisions.md) | Lock requirements, log decisions, label claims on big specs | Agents never invent features |
+| 14 | [Simplicity first](practices/14-simplicity-first.md) | Dumbest thing that works, YAGNI, delete code, boring tech, few deps | Smaller code that agents and people can read |
+| 15 | [Small changes and verification](practices/15-small-changes-and-verification.md) | One logical change, goal plus a check, proof it works | Easy reviews, higher first-try quality |
+| 16 | [Testing for confidence](practices/16-testing-for-confidence.md) | Few sharp tests, no mass-generated suites, never weaken tests | Fast CI you can trust |
+| 17 | [Review every diff](practices/17-review-every-diff.md) | Read diffs, spot warning signs, turn repeat mistakes into one rule | Silent damage caught, mistakes not repeated |
+
+### Guides
+
+| Guide | What |
+|-------|------|
+| [Tips and tricks](practices/tips-and-tricks.md) | Short habits for planning, prompting, checkpoints and review |
+| [Token efficiency](practices/token-efficiency.md) | Fresh sessions, short agent files, no log dumps, right-sized models |
 
 ### Templates
 
@@ -70,10 +81,15 @@ Reusable agent skills will live in [skills/](skills/).
 - **Architecture is the bottleneck, not the model.** Clear boundaries beat clever prompts.
 - **Small blast radius.** One module, one spec, one branch per agent.
 - **Contracts are shared code.** Client and server import the same schemas.
-- **Gates, not hope.** Typecheck, lint, tests and security checks run before every merge.
+- **Gates, not hope.** Typecheck, lint, tests and the authz check run before every merge. Extra gates only when needed.
 - **Resumable by default.** Any fresh agent can continue from the last checkpoint.
 - **Secure by default.** Every feature passes the same security gate.
 - **Docs move with code.** Behavior changes and doc changes ship in the same PR.
+- **Simplest thing that works.** No abstractions, options or dependencies before they are needed. Delete freely.
+- **Small and proven.** One logical change at a time, with proof that it works.
+- **Tests for confidence, not coverage.** Few sharp tests. Agents never weaken tests or add unrequested features.
+- **Read every diff.** Turn each repeated agent mistake into one short rule or check.
+- **Lean context.** Fresh session per task, short agent files, no log dumps.
 
 ## Benefits
 
@@ -82,6 +98,9 @@ Reusable agent skills will live in [skills/](skills/).
 - **Safe, resumable work.** Checkpoints, isolated branches and stop rules mean nothing gets lost or overwritten.
 - **Fewer security holes.** One guard, one checklist and CI checks on every route.
 - **Faster onboarding.** New people and new agents read the same short files and get productive quickly.
+- **Less code to maintain.** Simple code, few dependencies and regular deletion keep the codebase small.
+- **Faster reviews and CI.** Small diffs and a few meaningful tests instead of giant PRs and test suites.
+- **Lower token cost.** Short context means faster, cheaper and more focused agent sessions.
 
 ## How to adopt
 
@@ -106,6 +125,22 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR.
 ## Acknowledgements
 
 Some ideas here were sharpened by a talk on agentic engineering. The rest come from shipping real projects with agents.
+
+## Credits and further reading
+
+Practices 14 to 17 and the guides draw on public writing by these engineers. Quotes in the practice files are copied from the linked sources.
+
+- Andrej Karpathy: [vibe coding](https://x.com/karpathy/status/1886192184808149383), [AI coding rhythm](https://x.com/karpathy/status/1915581920022585597), [workflows](https://x.com/karpathy/status/1959703967694545296), [notes on agent coding](https://x.com/karpathy/status/2015883857489522876), [new conversation per request](https://x.com/karpathy/status/1902737525900525657), [nanochat](https://github.com/karpathy/nanochat)
+- Boris Cherny (creator of Claude Code): [his setup](https://x.com/bcherny/status/2007179832300581177), [verify your work](https://x.com/bcherny/status/2007179861115511237)
+- Simon Willison: [Using LLMs for code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/), [Code proven to work](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)
+- Armin Ronacher: [Agentic coding recommendations](https://lucumr.pocoo.org/2025/6/12/agentic-coding/)
+- Mitchell Hashimoto: [My AI adoption journey](https://mitchellh.com/writing/my-ai-adoption-journey)
+- Kent Beck: [How deep are your unit tests](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565), [Augmented coding: beyond the vibes](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes)
+- Martin Fowler: [YAGNI](https://martinfowler.com/bliki/Yagni.html)
+- [Choose Boring Technology](https://boringtechnology.club/)
+- Linux kernel: [Submitting patches](https://www.kernel.org/doc/html/latest/process/submitting-patches.html)
+- Claude Code docs: [Best practices](https://code.claude.com/docs/en/best-practices), [Manage costs](https://code.claude.com/docs/en/costs)
+- Reddit r/ExperiencedDevs threads on [overengineering](https://www.reddit.com/r/ExperiencedDevs/comments/1u1tgjq/the_biggest_problem_with_ai_is_not_correctness_it/) and [AI-generated test suites](https://www.reddit.com/r/ExperiencedDevs/comments/1po8uud/my_teammates_are_generating_enormous_test_suites/)
 
 ## License
 

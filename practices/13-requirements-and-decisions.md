@@ -9,7 +9,7 @@ Agents are eager. If a requirement is fuzzy, they invent a feature. If a decisio
 - **Order of locks:** requirements locked with the owner, then the spec is written and locked, then build starts.
 - **Agents never invent features.** If it is not in a locked requirement or spec, it is not built.
 - **DECISIONS.md** is a dated decision log. Each lock gets an entry: what, when, who approved, what it replaces.
-- **Label every claim** in specs and agent reports:
+- **Label claims** in big or risky specs and agent reports (optional for small specs, where marking open questions as [Assumption] is enough):
   - **[Fact]** verified (checked in code, data or with the owner)
   - **[Assumption]** believed but not verified
   - **[Inference]** derived from facts

@@ -8,7 +8,7 @@
 **Last updated:** YYYY-MM-DD
 **Requirements locked:** YYYY-MM-DD (see DECISIONS.md)
 
-> Label every claim that is not obvious:
+> For big or risky specs, label every claim that is not obvious (optional for small specs):
 > **[Fact]** verified, **[Assumption]** believed but unverified,
 > **[Inference]** derived from facts, **[Recommendation]** a proposal for the owner.
 > Agents treat only [Fact] and owner-approved items as buildable.
