@@ -1,5 +1,8 @@
 name: security
-on: [pull_request, push]
+on:
+  pull_request:
+  push:
+    branches: [main]
 permissions: { contents: read }
 jobs:
   secrets:
@@ -7,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-      - run: docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:latest git /repo --redact
+      - run: docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 git /repo --redact
   deps:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest

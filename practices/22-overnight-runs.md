@@ -41,6 +41,8 @@ timeout 4h claude -p "$(cat overnight-prompt.md)" \
   --allowedTools "Read,Edit,Write,Bash(npm test *),Bash(npm run typecheck),Bash(git add *),Bash(git commit *)"
 ```
 
+`Edit` plus `Bash(npm test *)` lets the agent change package.json and then run any code through `npm test`. That is why step 6 (sandbox, test credentials only) is required, not optional.
+
 `overnight-prompt.md`:
 
 ```text

@@ -1,5 +1,7 @@
 # 25. Security baseline
 
+> Related: [practice 06, security gate](06-security-gate.md) covers each route and feature. This page covers repo-wide setup.
+
 ## Problem
 
 AI-built apps leak in the same few ways: secrets committed to git, keys shipped to the browser, packages that were just published by an attacker or that the model made up, missing rate limits, raw HTML in pages, and AI tools in CI that read untrusted text while holding secrets. None of these need a security team to fix. They need a short baseline set up once.
@@ -8,8 +10,8 @@ AI-built apps leak in the same few ways: secrets committed to git, keys shipped 
 
 Ten must-haves. About half a day of setup in total, then they run on their own.
 
-1. **Secret scanning.** `.env` in `.gitignore`, a committed `.env.example`, gitleaks as a pre-commit hook and in CI, and GitHub push protection on.
-2. **Secrets server-side and away from the agent.** Deny the agent `Read(./.env)` and `Read(./.env.*)`. No secrets in `NEXT_PUBLIC_` or `VITE_` variables. Service-role keys only on the server. If you use Supabase, turn on Row Level Security.
+1. **Secret scanning.** `.env` in `.gitignore`, a committed `.env.example`, gitleaks in CI (a pre-commit hook is optional), and GitHub push protection on.
+2. **Secrets server-side and away from the agent.** Deny the agent `Read(./.env)`, `Read(./.env.local)` and `Read(./.env.*.local)` (not `.env.*`, which also hides `.env.example`). No secrets in `NEXT_PUBLIC_` or `VITE_` variables. Service-role keys only on the server. If you use Supabase, turn on Row Level Security.
 3. **Pinned and delayed dependencies.** Commit the lockfile, install with `npm ci`, turn on Dependabot security updates, and wait 3 to 7 days before taking a brand-new release (npm `min-release-age`, pnpm `minimumReleaseAge`, Dependabot `cooldown`).
 4. **Agent asks before adding any package.** Models invent package names, and attackers register them (slopsquatting). In one study, 19.7% of recommended packages did not exist, and 43% of those made-up names came back on every rerun.
 5. **One free code scanner.** CodeQL default setup for public repos, Semgrep Community Edition for private ones. One is enough.
@@ -53,7 +55,7 @@ Add these only if your app has the feature. Skip the rest.
 ```json
 {
   "permissions": {
-    "deny": ["Read(./.env)", "Read(./.env.*)"]
+    "deny": ["Read(./.env)", "Read(./.env.local)", "Read(./.env.*.local)"]
   }
 }
 ```
@@ -100,7 +102,7 @@ jobs:
 
 ## Checklist
 
-- [ ] `.env` ignored, `.env.example` committed, gitleaks in pre-commit and CI, push protection on
+- [ ] `.env` ignored, `.env.example` committed, gitleaks in CI (pre-commit optional), push protection on
 - [ ] Agent denied `.env` reads; no secrets in `NEXT_PUBLIC_` or `VITE_`; service keys server-only
 - [ ] Lockfile committed, `npm ci` in CI, Dependabot security updates, 3 to 7 day release-age wait
 - [ ] Agent asks before adding any package; the package exists and is not brand new

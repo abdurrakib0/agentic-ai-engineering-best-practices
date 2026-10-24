@@ -115,7 +115,7 @@ Five core skills (git guardrails, handoff, verification before completion, syste
 - **Architecture is the bottleneck, not the model.** Clear boundaries beat clever prompts.
 - **Small blast radius.** One module, one spec, one branch per agent.
 - **Contracts are shared code.** Client and server import the same schemas.
-- **Gates, not hope.** Typecheck, lint, tests and the authz check run before every merge. Extra gates only when needed.
+- **Gates, not hope.** Typecheck, lint and tests run before every merge, plus the authz check on projects with user roles. Extra gates only when needed.
 - **Resumable by default.** Any fresh agent can continue from the last checkpoint.
 - **Secure by default.** Every feature passes the same security gate.
 - **Docs move with code.** Behavior changes and doc changes ship in the same PR.
@@ -153,7 +153,7 @@ You do not need everything on day one. Start small:
 
 1. **Start from the template.** Copy the [template/](template/) folder (see [Start a new project](#start-a-new-project)). It ships with AGENTS.md, BRIEF.md, ARCHITECTURE.md, SPEC.md, FOUNDATIONS.md, DECISIONS.md, PIPELINE.md, a contracts folder, SECURITY.md and CI with a security workflow.
 2. **Run Day 0 discovery.** Answer the 8 must-ask questions and write a one-page brief and module map ([practice 24](practices/24-day0-discovery-and-architecture.md)).
-3. **Write one spec and one AGENTS.md.** Pick your next feature, fill in [HANDOVER.md](snippets/HANDOVER.md), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
+3. **Write one spec and one AGENTS.md.** Pick your next feature, write it in `docs/SPEC.md` (teams with several modules can use [HANDOVER.md](snippets/HANDOVER.md) per module), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
 4. **Add one CI gate.** Typecheck, lint and tests on every push and PR. Block merges on failure.
 5. **Add the security gate and baseline.** Drop in the [PR template](snippets/PR_TEMPLATE.md), the shared permission guard ([practice 06](practices/06-security-gate.md)) and the 10 must-haves ([practice 25](practices/25-security-baseline.md)).
 6. **Grow as you need.** Add contracts, pipeline, glossary and multi-agent rules when the project or team gets bigger.

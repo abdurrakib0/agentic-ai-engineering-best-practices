@@ -1,5 +1,7 @@
 # 20. Parallel agents
 
+> Related: [practice 09, multi-agent rules](09-multi-agent-rules.md) has the isolation and safety rules.
+
 ## Problem
 
 Running many agents at once sounds faster, but every result still needs your review. Too many agents leave you with a pile of unreviewed diffs, tests that break each other, and lost track of which branch holds what.

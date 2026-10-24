@@ -30,9 +30,10 @@ Reading order for agents: BRIEF, ARCHITECTURE, FOUNDATIONS, SPEC, then PIPELINE.
 | `contracts/` | API contracts (OpenAPI or typed), written before code. |
 | `SECURITY.md` | How to report a vulnerability privately. |
 | `.env.example` | Variable names only. Copy to `.env`, which is git-ignored. |
-| `.github/workflows/ci.yml` | Runs `scripts/check.sh` (lint, test, AGENTS.md size) on every push and pull request. |
-| `.github/workflows/security.yml` | Secret scan on every push; dependency review on pull requests. |
-| `.github/dependabot.yml` | Weekly dependency updates with a 5 day cooldown. Set the ecosystem for your stack. |
+| `.claude/settings.json` | Stops Claude Code from reading `.env` files. |
+| `.github/workflows/ci.yml` | Runs `scripts/check.sh` (lint, test, AGENTS.md size) on pull requests and pushes to main. |
+| `.github/workflows/security.yml` | Secret scan on pull requests and pushes to main; dependency review on pull requests (delete that job on private repos without GitHub Advanced Security). |
+| `.github/dependabot.yml.example` | Weekly dependency updates with a 5 day cooldown. Set the ecosystem, then rename to `dependabot.yml`. |
 
 ## Principles
 - Ask before you build. Brief and architecture before spec, spec before code.

@@ -1,5 +1,7 @@
 # Token efficiency
 
+> Related: [practice 10, tier-0 agent files](10-tier0-agent-files.md) covers keeping AGENTS.md short.
+
 Fewer wasted tokens means faster answers, lower cost and better focus. Each tip is one or two lines plus a source.
 
 - **New session per task.** Long chats get slower, cost more and get distracted. Clear between unrelated tasks. [Karpathy](https://x.com/karpathy/status/1902737525900525657), [Claude Code docs](https://code.claude.com/docs/en/costs)

@@ -1,5 +1,7 @@
 # 13. Requirements and decisions
 
+> Related: [practice 24, Day 0](24-day0-discovery-and-architecture.md) covers which decisions to log on Day 0 (one-way doors only).
+
 ## Problem
 
 Agents are eager. If a requirement is fuzzy, they invent a feature. If a decision is not written down, it gets reopened or forgotten.

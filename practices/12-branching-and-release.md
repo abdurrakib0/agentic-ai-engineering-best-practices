@@ -6,6 +6,8 @@ Without clear rules, features and fixes land on the wrong branch, half-done work
 
 ## Practice
 
+**Solo dev or a small team?** Use `main` plus short-lived branches, merge by PR when CI passes, and tag releases. The `development` branch and joint OK below are for teams with an owner and a lead dev.
+
 - **Branches**
   - `main`: production. Always deployable.
   - `development`: integration branch for features.

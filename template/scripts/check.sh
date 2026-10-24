@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Edit the lint and test commands to match docs/FOUNDATIONS.md. CI runs this file.
-set -e
+set -euo pipefail
 
 # Keep AGENTS.md short so agents read all of it.
 size=$(wc -c < AGENTS.md)

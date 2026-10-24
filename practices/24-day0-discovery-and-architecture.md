@@ -1,5 +1,7 @@
 # 24. Day 0 discovery and architecture
 
+> Related: [practice 13, requirements and decisions](13-requirements-and-decisions.md) covers locking requirements and the decision log.
+
 ## Problem
 
 Most expensive rework comes from two Day 0 mistakes: a vague brief, and a structure picked too early (often microservices or heavy layers). Agents make it worse. Given no structure, each agent invents its own. Given a fuzzy goal, they build features nobody asked for.
@@ -100,7 +102,7 @@ src/
 ```
 
 - Other modules import only a module's `index`.
-- Each module owns its tables (own schema or table prefix). No cross-module joins or foreign keys into another module's tables. Call its public API instead.
+- Each module owns its tables (own schema or table prefix). Avoid cross-module joins and foreign keys into another module's tables. Call its public API instead.
 - `src/shared/` stays small: config, logging, errors.
 
 ### Level-up triggers

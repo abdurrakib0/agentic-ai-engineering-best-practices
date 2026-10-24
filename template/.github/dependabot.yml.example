@@ -1,3 +1,4 @@
+# Rename to dependabot.yml once the project has a package file, and set the ecosystem.
 # Dependabot version updates. Change the ecosystem to match your stack
 # (npm is a placeholder: pip, gomod, cargo, etc.).
 # Security updates are switched on in the repo settings, not here.

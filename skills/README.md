@@ -4,7 +4,7 @@ A skill is a short Markdown file (`SKILL.md`) that teaches an agent one repeatab
 
 ## Copied skills
 
-These five are copied unchanged into [third_party/](third_party/), each with its original MIT LICENSE file. Copy a folder into your agent's skills directory (for Claude Code: `.claude/skills/<name>/`).
+These five are copied into [third_party/](third_party/), each with its original MIT LICENSE file. Only the upstream test and history files were left out of systematic-debugging. Copy a folder into your agent's skills directory (for Claude Code: `.claude/skills/<name>/`).
 
 | Skill | What it does | Why it is useful | Source | License |
 |-------|--------------|------------------|--------|---------|

@@ -23,7 +23,7 @@ src/
 ```
 Rules:
 - Other modules import only a module's `index`.
-- Each module owns its tables. No cross-module joins or foreign keys into another module's tables. Call its `index` instead.
+- Each module owns its tables. Avoid cross-module joins and foreign keys into another module's tables. Call its `index` instead.
 - `src/shared/` holds only config, logging and errors.
 
 ## Conventions

@@ -1,5 +1,7 @@
 # 09. Multi-agent rules
 
+> Related: [practice 20, parallel agents](20-parallel-agents.md) covers how many agents to run and how to keep up with review.
+
 ## Problem
 
 Several agents in one repo step on each other: shared working directories, force pushes, killed dev servers, overloaded machines and broken shared databases.

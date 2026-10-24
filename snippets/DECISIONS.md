@@ -6,9 +6,9 @@
 
 | ID | Date | Decision | Status | Approved by | Supersedes |
 |----|------|----------|--------|-------------|------------|
-| D-003 | YYYY-MM-DD | Spec for <module> locked for build | locked | owner | |
-| D-002 | YYYY-MM-DD | Requirements for <module> locked | locked | owner | |
-| D-001 | YYYY-MM-DD | Use zod for shared contracts | locked | owner, lead dev | |
+| D-003 | YYYY-MM-DD | Auth: managed provider, no custom auth | locked | owner | |
+| D-002 | YYYY-MM-DD | Tenancy: one database, workspace_id on every row | locked | owner, lead dev | |
+| D-001 | YYYY-MM-DD | Database: Postgres | locked | owner | |
 
 Status: proposed | locked | superseded
 

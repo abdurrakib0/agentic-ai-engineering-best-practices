@@ -1,6 +1,6 @@
 # Decisions
 
-Log only **one-way doors**: choices that are hard or costly to undo (database, auth, tenancy, hosting, major vendor, public API shape, new dependency, module or service). Two-way doors are just decided, no entry.
+Log only **one-way doors**: choices that are hard or costly to undo (database, auth, tenancy, hosting, major vendor, public API shape). Two-way doors are just decided, no entry.
 
 A locked entry changes only with a new dated entry approved by the owner.
 

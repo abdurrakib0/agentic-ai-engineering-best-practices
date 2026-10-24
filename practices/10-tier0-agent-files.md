@@ -1,5 +1,7 @@
 # 10. Tier-0 agent files
 
+> Related: [token efficiency](token-efficiency.md) has more ways to keep context small.
+
 ## Problem
 
 AGENTS.md or CLAUDE.md grows into a huge rulebook. It eats the context window, agents skim it, and important rules get lost.

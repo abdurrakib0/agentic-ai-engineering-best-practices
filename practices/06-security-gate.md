@@ -1,5 +1,7 @@
 # 06. Security gate
 
+> Related: [practice 25, security baseline](25-security-baseline.md) covers repo-wide setup. This page covers each route and feature.
+
 ## Problem
 
 Agents ship working code that is not safe: missing permission checks, trusting IDs from the client, returning whole database rows, open cron routes. These holes are easy to miss in review.

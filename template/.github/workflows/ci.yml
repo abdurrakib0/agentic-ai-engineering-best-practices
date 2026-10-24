@@ -1,7 +1,9 @@
 name: CI
 on:
-  push:
   pull_request:
+  push:
+    branches: [main]
+permissions: { contents: read }
 jobs:
   check:
     runs-on: ubuntu-latest

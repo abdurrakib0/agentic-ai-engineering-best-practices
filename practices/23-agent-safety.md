@@ -13,7 +13,7 @@ Agents follow instructions they find in content: a web page, an issue, a README,
   Remove at least one. For example, an agent that reads web pages gets no secrets.
 - **Sandbox before auto mode.** Skip-permission or auto modes run only inside a container or sandbox, never on your main machine.
 - **Scoped test credentials.** Give agents test or staging keys with spending limits. Never production secrets, never your personal tokens.
-- **Deny `.env` reads, and still sandbox.** Add `Read(./.env)` and `Read(./.env.*)` to the agent's deny rules. Deny rules do not cover every program the agent can run, so the sandbox is the real wall.
+- **Deny `.env` reads, and still sandbox.** Add `Read(./.env)`, `Read(./.env.local)` and `Read(./.env.*.local)` to the agent's deny rules. Deny rules do not cover every program the agent can run, so the sandbox is the real wall. Do not deny `.env.*`: that also hides `.env.example`, which agents need for variable names.
 - **Trust MCP servers like dependencies.** Only from known publishers, pinned, read-only where possible, and turned off when unused.
 - **AI in CI runs on trusted PRs only.** Never give an AI action secrets in a job that reads issue, PR or comment text from outsiders.
 - **Fine-grained, expiring tokens.** Scope each token to one repo and the fewest permissions, with an expiry date.
