@@ -29,7 +29,7 @@ Labels make uncertainty visible, so the owner knows exactly what to confirm. A d
 
 ## Example
 
-Template: [templates/DECISIONS.md](../templates/DECISIONS.md).
+Template: [snippets/DECISIONS.md](../snippets/DECISIONS.md).
 
 ```markdown
 ### D-007: Soft delete for tasks (2026-02-03)

@@ -93,17 +93,17 @@ The bottleneck is not the model. It is **architecture and process**. This repo c
 | [Tips and tricks](practices/tips-and-tricks.md) | Short habits for planning, prompting, checkpoints and review |
 | [Token efficiency](practices/token-efficiency.md) | Fresh sessions, short agent files, no log dumps, right-sized models |
 
-### Templates
+### Snippets
 
-Single files to copy into an existing repo. For a new project, use the full [template/](template/) folder instead.
+Single files (in [snippets/](snippets/)) to copy into an existing repo. Starting a new project? Use the full [template/](template/) starter kit instead.
 
 | File | Use |
 |------|-----|
-| [templates/HANDOVER.md](templates/HANDOVER.md) | Module spec |
-| [templates/PIPELINE.md](templates/PIPELINE.md) | Agent queue and gates |
-| [templates/GLOSSARY.md](templates/GLOSSARY.md) | Standard terms |
-| [templates/DECISIONS.md](templates/DECISIONS.md) | Dated decision log, one-way doors only |
-| [templates/PR_TEMPLATE.md](templates/PR_TEMPLATE.md) | Security and docs checklist (save as `.github/pull_request_template.md`) |
+| [snippets/HANDOVER.md](snippets/HANDOVER.md) | Module spec |
+| [snippets/PIPELINE.md](snippets/PIPELINE.md) | Agent queue and gates |
+| [snippets/GLOSSARY.md](snippets/GLOSSARY.md) | Standard terms |
+| [snippets/DECISIONS.md](snippets/DECISIONS.md) | Dated decision log, one-way doors only |
+| [snippets/PR_TEMPLATE.md](snippets/PR_TEMPLATE.md) | Security and docs checklist (save as `.github/pull_request_template.md`) |
 
 ### Skills
 
@@ -153,9 +153,9 @@ You do not need everything on day one. Start small:
 
 1. **Start from the template.** Copy the [template/](template/) folder (see [Start a new project](#start-a-new-project)). It ships with AGENTS.md, BRIEF.md, ARCHITECTURE.md, SPEC.md, FOUNDATIONS.md, DECISIONS.md, PIPELINE.md, a contracts folder, SECURITY.md and CI with a security workflow.
 2. **Run Day 0 discovery.** Answer the 8 must-ask questions and write a one-page brief and module map ([practice 24](practices/24-day0-discovery-and-architecture.md)).
-3. **Write one spec and one AGENTS.md.** Pick your next feature, fill in [HANDOVER.md](templates/HANDOVER.md), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
+3. **Write one spec and one AGENTS.md.** Pick your next feature, fill in [HANDOVER.md](snippets/HANDOVER.md), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
 4. **Add one CI gate.** Typecheck, lint and tests on every push and PR. Block merges on failure.
-5. **Add the security gate and baseline.** Drop in the [PR template](templates/PR_TEMPLATE.md), the shared permission guard ([practice 06](practices/06-security-gate.md)) and the 10 must-haves ([practice 25](practices/25-security-baseline.md)).
+5. **Add the security gate and baseline.** Drop in the [PR template](snippets/PR_TEMPLATE.md), the shared permission guard ([practice 06](practices/06-security-gate.md)) and the 10 must-haves ([practice 25](practices/25-security-baseline.md)).
 6. **Grow as you need.** Add contracts, pipeline, glossary and multi-agent rules when the project or team gets bigger.
 
 ## Contributing

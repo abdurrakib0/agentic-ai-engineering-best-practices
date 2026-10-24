@@ -23,7 +23,7 @@ Agents copy the words they see. If the glossary and the code agree, new code fol
 
 ## Example
 
-Template: [templates/GLOSSARY.md](../templates/GLOSSARY.md).
+Template: [snippets/GLOSSARY.md](../snippets/GLOSSARY.md).
 
 ```js
 // scripts/check-glossary.mjs (warns, does not fail)

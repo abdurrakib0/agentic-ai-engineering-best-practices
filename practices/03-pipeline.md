@@ -27,7 +27,7 @@ Agents lose memory between sessions. A file in git does not. If the plan and the
 
 ## Example
 
-Full template: [templates/PIPELINE.md](../templates/PIPELINE.md).
+Full template: [snippets/PIPELINE.md](../snippets/PIPELINE.md).
 
 ```markdown
 ## Stop rules

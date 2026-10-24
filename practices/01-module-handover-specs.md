@@ -27,7 +27,7 @@ The spec is the agent's context. A short, exact spec fits in the context window,
 
 ## Example
 
-Full template: [templates/HANDOVER.md](../templates/HANDOVER.md).
+Full template: [snippets/HANDOVER.md](../snippets/HANDOVER.md).
 
 ```markdown
 ## 4. API

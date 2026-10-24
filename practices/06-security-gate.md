@@ -18,7 +18,7 @@ Every feature, API and page passes the same gate. For repo-wide setup (secret sc
 - **Internal pages behind auth.** User manuals, admin pages and any page with internal content require login. Nothing internal is public.
 - **Negative authz tests on sensitive routes.** For routes that touch money, admin actions, permissions or data across workspaces, test wrong role, no session and another workspace's data. All must fail. For other routes, the shared guard plus `check:authz` is enough.
 - **Keep checks local and visible.** Call the guard inline at the top of each route, so a person or agent reading the route sees the permission right there.
-- **PR checklist** with security items (see [templates/PR_TEMPLATE.md](../templates/PR_TEMPLATE.md)).
+- **PR checklist** with security items (see [snippets/PR_TEMPLATE.md](../snippets/PR_TEMPLATE.md)).
 - **CI `check:authz`.** Fails if a route does not call the guard, unless it is in a short public allowlist with a reason per entry.
 
 ## Why
