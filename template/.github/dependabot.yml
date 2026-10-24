@@ -1,0 +1,13 @@
+# Dependabot version updates. Change the ecosystem to match your stack
+# (npm is a placeholder: pip, gomod, cargo, etc.).
+# Security updates are switched on in the repo settings, not here.
+# cooldown waits 5 days after a release before proposing it,
+# so most bad or hijacked releases are pulled before they reach you.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 5

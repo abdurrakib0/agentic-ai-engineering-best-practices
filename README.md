@@ -10,6 +10,32 @@ Maintained by Abdur Rakib ([@abdurrakib0](https://github.com/abdurrakib0)).
 
 ---
 
+## Start a new project
+
+The [template/](template/) folder is a ready starter: AGENTS.md, docs (BRIEF, ARCHITECTURE, SPEC, FOUNDATIONS, DECISIONS), PIPELINE.md, contracts, SECURITY.md, `.env.example` and CI with a security workflow.
+
+Copy it into a new folder (no git history, no guide files):
+
+```bash
+npx degit abdurrakib0/agentic-ai-engineering-best-practices/template my-app
+cd my-app && git init
+```
+
+No Node? Use plain git:
+
+```bash
+git clone --depth 1 https://github.com/abdurrakib0/agentic-ai-engineering-best-practices.git
+mkdir my-app && cp -r agentic-ai-engineering-best-practices/template/. my-app/
+cd my-app && git init
+```
+
+Then:
+
+1. Fill in `docs/BRIEF.md` first.
+2. Tell your agent: "Read AGENTS.md and start with the first unchecked item in PIPELINE.md."
+
+More steps are in [template/README.md](template/README.md).
+
 ## Why this exists
 
 AI coding agents write code fast. Projects still fail, and usually for the same four reasons:
@@ -69,7 +95,7 @@ The bottleneck is not the model. It is **architecture and process**. This repo c
 
 ### Templates
 
-Copy into your repo:
+Single files to copy into an existing repo. For a new project, use the full [template/](template/) folder instead.
 
 | File | Use |
 |------|-----|
@@ -125,7 +151,7 @@ Five core skills (git guardrails, handoff, verification before completion, syste
 
 You do not need everything on day one. Start small:
 
-1. **Start from the template.** Use [agent-ready-template](https://github.com/abdurrakib0/agent-ready-template). It ships with AGENTS.md, BRIEF.md, ARCHITECTURE.md, SPEC.md, FOUNDATIONS.md, DECISIONS.md, PIPELINE.md, a contracts folder, SECURITY.md and CI with a security workflow.
+1. **Start from the template.** Copy the [template/](template/) folder (see [Start a new project](#start-a-new-project)). It ships with AGENTS.md, BRIEF.md, ARCHITECTURE.md, SPEC.md, FOUNDATIONS.md, DECISIONS.md, PIPELINE.md, a contracts folder, SECURITY.md and CI with a security workflow.
 2. **Run Day 0 discovery.** Answer the 8 must-ask questions and write a one-page brief and module map ([practice 24](practices/24-day0-discovery-and-architecture.md)).
 3. **Write one spec and one AGENTS.md.** Pick your next feature, fill in [HANDOVER.md](templates/HANDOVER.md), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
 4. **Add one CI gate.** Typecheck, lint and tests on every push and PR. Block merges on failure.
