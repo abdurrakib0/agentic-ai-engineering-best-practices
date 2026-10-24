@@ -10,6 +10,7 @@ User stories look complete until someone builds them. Then the gaps appear: empt
 - Ask an agent to find gaps and ask the owner questions. The agent asks, the owner answers.
 - Answers go into the HANDOVER.md (as business rules or acceptance criteria) and into DECISIONS.md if they lock a choice.
 - No build prompt until open questions are answered or explicitly marked out of scope.
+- **Then start fresh.** Once the answers are in HANDOVER.md, build in a new session that reads the spec. The grill conversation stays out of the build context.
 
 ## Why
 
@@ -39,3 +40,7 @@ Question list to cover:
 - **Undo:** Can it be reversed? Soft delete or hard delete?
 - **Audit:** Do we need a history of who changed what?
 - **Out of scope:** What will we explicitly not build now?
+
+## Sources
+
+- Claude Code docs, best practices ("Let Claude interview you", then implement in a fresh session): https://code.claude.com/docs/en/best-practices

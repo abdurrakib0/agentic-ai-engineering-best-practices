@@ -12,6 +12,7 @@ Agents overbuild. They add layers, config systems, helper classes, defensive try
 - **Boring, stable tech.** Prefer popular, well-known libraries. Agents know them best and make fewer mistakes with them. Upgrade conservatively.
 - **Few dependencies.** Before adding a package, ask if a few lines of code would do the job.
 - **Vanilla tooling.** Start with the agent's default setup. Add custom config, skills or tools only after a real, repeated need.
+- **Agent-friendly code and tools.** Fast commands with short, clear errors. Logs go to a file the agent can read. Keep permission checks next to the route, not hidden in config, so the agent sees them.
 
 ## Why
 

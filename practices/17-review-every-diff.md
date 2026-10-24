@@ -10,6 +10,7 @@ Agents make wrong assumptions, edit code and comments unrelated to the task, and
 - **Watch for warning signs:** loops on the same error, edits to unrelated files, features you did not ask for, and tests being weakened. Stop the agent early when you see them.
 - **Ask for a cleanup pass** before merging: remove duplication, extra try/catch, nested ifs and dead code.
 - **Fix the setup, not just the bug.** When the agent makes the same mistake twice, add one line to AGENTS.md or one small check script so it cannot happen again.
+- **Give the agent a tool instead of a rule when you can.** If it keeps guessing, add a small script it can run (filtered test output, a screenshot, a lint rule). For rules that must never be skipped, use a hook ([practice 18](18-hooks-for-must-always-rules.md)).
 - **Add a rule only after a real repeated failure.** Do not write rules for problems you have not had.
 
 ## Why
@@ -37,3 +38,4 @@ and anything we could delete. Do not change code yet.
 - Kent Beck, warning signs when the AI goes off track: https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes
 - Mitchell Hashimoto, turn each agent mistake into an AGENTS.md update or a check: https://mitchellh.com/writing/my-ai-adoption-journey
 - Reddit r/ExperiencedDevs, locally reasonable AI choices cause architecture drift: https://www.reddit.com/r/ExperiencedDevs/comments/1s3f06x/ai_agents_pass_the_tests_but_break_the/
+- OpenAI, Harness engineering (improve the environment and tools so agent mistakes do not repeat): https://openai.com/index/harness-engineering/

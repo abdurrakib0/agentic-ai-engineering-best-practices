@@ -51,6 +51,12 @@ The bottleneck is not the model. It is **architecture and process**. This repo c
 | 15 | [Small changes and verification](practices/15-small-changes-and-verification.md) | One logical change, goal plus a check, proof it works | Easy reviews, higher first-try quality |
 | 16 | [Testing for confidence](practices/16-testing-for-confidence.md) | Few sharp tests, no mass-generated suites, never weaken tests | Fast CI you can trust |
 | 17 | [Review every diff](practices/17-review-every-diff.md) | Read diffs, spot warning signs, turn repeat mistakes into one rule | Silent damage caught, mistakes not repeated |
+| 18 | [Hooks for must-always rules](practices/18-hooks-for-must-always-rules.md) | Format after edits and block dangerous git with hooks | Hard rules hold every time |
+| 19 | [Fresh-eyes review](practices/19-fresh-eyes-review.md) | Clean-context reviewer for auth, money and migrations; correctness gaps only | Serious bugs caught without review noise |
+| 20 | [Parallel agents](practices/20-parallel-agents.md) | Start with 2 or 3, own worktree, port and DB, short task list | More done without a review backlog |
+| 21 | [Model routing](practices/21-model-routing.md) | Top model plans and debugs, mid model codes, small model searches | Lower cost, quality where it matters |
+| 22 | [Overnight runs](practices/22-overnight-runs.md) | Goal plus check, one task per commit, progress.md, caps and one notify hook | Safe unattended work with a clear morning review |
+| 23 | [Agent safety](practices/23-agent-safety.md) | Avoid the lethal trifecta, sandbox and scoped test credentials | Secrets stay safe, mistakes stay small |
 
 ### Guides
 
@@ -73,7 +79,7 @@ Copy into your repo:
 
 ### Skills
 
-Reusable agent skills will live in [skills/](skills/).
+Four core skills (git guardrails, handoff, verification before completion, systematic debugging) are copied with their MIT licenses into [skills/third_party/](skills/third_party/). [skills/README.md](skills/README.md) lists them plus link-only skills worth knowing.
 
 ## Core principles
 
@@ -90,6 +96,10 @@ Reusable agent skills will live in [skills/](skills/).
 - **Tests for confidence, not coverage.** Few sharp tests. Agents never weaken tests or add unrequested features.
 - **Read every diff.** Turn each repeated agent mistake into one short rule or check.
 - **Lean context.** Fresh session per task, short agent files, no log dumps.
+- **Hooks for hard rules.** If a rule must never be skipped, a hook enforces it, not a line of advice.
+- **Right model for the job.** Top model for plans and hard bugs, cheaper models for routine work and search.
+- **Parallel only as fast as you review.** Start with 2 or 3 agents, each fully isolated.
+- **Unattended means capped.** Sandbox, branch, test credentials, turn and budget limits.
 
 ## Benefits
 
@@ -101,6 +111,9 @@ Reusable agent skills will live in [skills/](skills/).
 - **Less code to maintain.** Simple code, few dependencies and regular deletion keep the codebase small.
 - **Faster reviews and CI.** Small diffs and a few meaningful tests instead of giant PRs and test suites.
 - **Lower token cost.** Short context means faster, cheaper and more focused agent sessions.
+- **Rules that always hold.** Hooks format code and block dangerous commands every time.
+- **Work while you sleep.** Overnight runs with caps and a morning report, without surprise bills.
+- **Safer agents.** No leaked secrets from prompt injection, and mistakes stay inside the sandbox.
 
 ## How to adopt
 
@@ -128,18 +141,22 @@ Some ideas here were sharpened by a talk on agentic engineering. The rest come f
 
 ## Credits and further reading
 
-Practices 14 to 17 and the guides draw on public writing by these engineers. Quotes in the practice files are copied from the linked sources.
+Practices 14 to 23, the guides and the skills list draw on public writing by these engineers. Quotes in the practice files are copied from the linked sources.
 
 - Andrej Karpathy: [vibe coding](https://x.com/karpathy/status/1886192184808149383), [AI coding rhythm](https://x.com/karpathy/status/1915581920022585597), [workflows](https://x.com/karpathy/status/1959703967694545296), [notes on agent coding](https://x.com/karpathy/status/2015883857489522876), [new conversation per request](https://x.com/karpathy/status/1902737525900525657), [nanochat](https://github.com/karpathy/nanochat)
-- Boris Cherny (creator of Claude Code): [his setup](https://x.com/bcherny/status/2007179832300581177), [verify your work](https://x.com/bcherny/status/2007179861115511237)
-- Simon Willison: [Using LLMs for code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/), [Code proven to work](https://simonwillison.net/2025/Dec/18/code-proven-to-work/)
+- Boris Cherny (creator of Claude Code): [his setup](https://x.com/bcherny/status/2007179832300581177), [verify your work](https://x.com/bcherny/status/2007179861115511237), [setup summary on Reddit](https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/)
+- Simon Willison: [Using LLMs for code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/), [Code proven to work](https://simonwillison.net/2025/Dec/18/code-proven-to-work/), [The lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/), [Designing agentic loops](https://simonwillison.net/2025/Sep/30/designing-agentic-loops/), [Parallel coding agents](https://simonwillison.net/2025/Oct/5/parallel-coding-agents/)
 - Armin Ronacher: [Agentic coding recommendations](https://lucumr.pocoo.org/2025/6/12/agentic-coding/)
 - Mitchell Hashimoto: [My AI adoption journey](https://mitchellh.com/writing/my-ai-adoption-journey)
 - Kent Beck: [How deep are your unit tests](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565), [Augmented coding: beyond the vibes](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes)
 - Martin Fowler: [YAGNI](https://martinfowler.com/bliki/Yagni.html)
 - [Choose Boring Technology](https://boringtechnology.club/)
 - Linux kernel: [Submitting patches](https://www.kernel.org/doc/html/latest/process/submitting-patches.html)
-- Claude Code docs: [Best practices](https://code.claude.com/docs/en/best-practices), [Manage costs](https://code.claude.com/docs/en/costs)
+- Claude Code docs: [Best practices](https://code.claude.com/docs/en/best-practices), [Manage costs](https://code.claude.com/docs/en/costs), [Hooks](https://code.claude.com/docs/en/hooks-guide), [Model config](https://code.claude.com/docs/en/model-config), [CLI reference](https://code.claude.com/docs/en/cli-reference), [Sandboxing](https://code.claude.com/docs/en/sandboxing)
+- Anthropic: [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents), [Choosing a model](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model), [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
+- OpenAI: [Harness engineering](https://openai.com/index/harness-engineering/), [Codex models](https://developers.openai.com/codex/models), [Codex non-interactive mode](https://developers.openai.com/codex/noninteractive)
+- HumanLayer: [Advanced context engineering](https://www.humanlayer.com/blog/advanced-context-engineering)
+- Skills: [mattpocock/skills](https://github.com/mattpocock/skills) (MIT), [obra/superpowers](https://github.com/obra/superpowers) (MIT), [anthropics/skills](https://github.com/anthropics/skills), [trailofbits/skills](https://github.com/trailofbits/skills)
 - Reddit r/ExperiencedDevs threads on [overengineering](https://www.reddit.com/r/ExperiencedDevs/comments/1u1tgjq/the_biggest_problem_with_ai_is_not_correctness_it/) and [AI-generated test suites](https://www.reddit.com/r/ExperiencedDevs/comments/1po8uud/my_teammates_are_generating_enormous_test_suites/)
 
 ## License

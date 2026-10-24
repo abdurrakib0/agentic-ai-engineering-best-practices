@@ -8,6 +8,9 @@ Short, practical habits for working with coding agents. Each one is one or two l
 - **You own the shape.** Write the function signatures, schema or API spec yourself, then let the agent fill in the body. [Simon Willison](https://simonwillison.net/2025/Mar/11/using-llms-for-code/)
 - **Show, do not describe.** Write a few lines in the right place and let the agent continue. It is often faster than explaining. [Karpathy](https://x.com/karpathy/status/1959703967694545296)
 - **Talk to it like a coworker.** Say what you want, how much effort to spend, and how it should verify. [Boris Cherny](https://x.com/bcherny/status/2107565388250874193)
+- **Give the reason and say what to do.** "Write flowing paragraphs" works better than "do not use bullets". Explain why a rule matters. [Anthropic prompting docs](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
+- **Be specific in one prompt:** the file, an existing pattern to copy, the symptom, and what "fixed" looks like. [Claude Code docs](https://code.claude.com/docs/en/best-practices)
+- **Use XML tags for mixed input,** for example `<spec>`, `<error>`, `<diff>`, so instructions and data do not blur. [Anthropic prompting docs](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
 
 ## While coding
 
@@ -25,3 +28,4 @@ Short, practical habits for working with coding agents. Each one is one or two l
 - **Ask for a plain explanation or a diagram** when you do not understand the output. [Karpathy](https://x.com/karpathy/status/2105819303471976479)
 - **Hard bugs go to the strongest model with the full context.** [Karpathy](https://x.com/karpathy/status/1959703967694545296)
 - **Be ready to take over by hand** when the agent is stuck. [Simon Willison](https://simonwillison.net/2025/Mar/11/using-llms-for-code/)
+- **Ask for evidence, not claims.** "Show me the command output that proves it works" beats "is it done?". See the [verification-before-completion skill](../skills/third_party/verification-before-completion/). [Claude Code docs](https://code.claude.com/docs/en/best-practices)
