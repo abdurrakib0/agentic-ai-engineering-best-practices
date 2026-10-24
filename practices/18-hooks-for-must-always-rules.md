@@ -10,6 +10,7 @@ A rule in AGENTS.md is advice. The agent usually follows it, but not always. For
 - **Start with two hooks:**
   - After each file edit: run the formatter.
   - Before each shell command: block dangerous git commands (push, `reset --hard`, `clean -f`, `branch -D`). The [git-guardrails skill](../skills/third_party/git-guardrails-claude-code/) sets this up.
+- **Optional third hook: gitleaks before each commit.** A git pre-commit hook that runs `gitleaks git --pre-commit --staged` stops a secret before it ever reaches history ([practice 25](25-security-baseline.md)).
 - **Keep everything else in AGENTS.md.** Add a hook only after a rule was broken more than once ([practice 17](17-review-every-diff.md)).
 - **Keep hooks tiny and fast.** One script, one job, a clear message when it blocks.
 
@@ -52,3 +53,4 @@ Proof it works: `echo '{"tool_input":{"command":"git push origin main"}}' | .cla
 - Claude Code docs, best practices ("Set up hooks"): https://code.claude.com/docs/en/best-practices
 - Boris Cherny's setup, a PostToolUse hook to format code: https://www.reddit.com/r/ClaudeAI/comments/1q2c0ne/claude_code_creator_boris_shares_his_setup_with/
 - Matt Pocock, git-guardrails-claude-code skill (MIT): https://github.com/mattpocock/skills
+- gitleaks (pre-commit usage): https://github.com/gitleaks/gitleaks

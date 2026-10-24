@@ -26,6 +26,11 @@
 - [ ] Sensitive routes (money, admin, permissions, cross-workspace): negative authz tests added
 - [ ] Public routes are listed in the allowlist with a reason
 
+- [ ] New dependency (if any): named here, confirmed it exists, checked downloads and release age, owner said yes
+- [ ] No secrets in code, config or client-side variables (`NEXT_PUBLIC_`, `VITE_`)
+- [ ] No raw HTML rendered without sanitizing
+- [ ] No passwords, tokens or personal data in logs
+
 ## Docs
 
 - [ ] README updated (if setup, scripts or behavior changed)

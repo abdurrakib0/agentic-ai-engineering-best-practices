@@ -57,6 +57,8 @@ The bottleneck is not the model. It is **architecture and process**. This repo c
 | 21 | [Model routing](practices/21-model-routing.md) | Top model plans and debugs, mid model codes, small model searches | Lower cost, quality where it matters |
 | 22 | [Overnight runs](practices/22-overnight-runs.md) | Goal plus check, one task per commit, progress.md, caps and one notify hook | Safe unattended work with a clear morning review |
 | 23 | [Agent safety](practices/23-agent-safety.md) | Avoid the lethal trifecta, sandbox and scoped test credentials | Secrets stay safe, mistakes stay small |
+| 24 | [Day 0 discovery and architecture](practices/24-day0-discovery-and-architecture.md) | 8 must-ask questions, one-page brief, module map, modular monolith by default, log one-way doors | Expensive mistakes caught before code; agents follow one structure |
+| 25 | [Security baseline](practices/25-security-baseline.md) | 10 must-haves: secret scanning, keys away from agents, delayed deps, one free scanner, rate limits, least privilege | Closes the common leaks in agent-built apps in about half a day |
 
 ### Guides
 
@@ -74,12 +76,12 @@ Copy into your repo:
 | [templates/HANDOVER.md](templates/HANDOVER.md) | Module spec |
 | [templates/PIPELINE.md](templates/PIPELINE.md) | Agent queue and gates |
 | [templates/GLOSSARY.md](templates/GLOSSARY.md) | Standard terms |
-| [templates/DECISIONS.md](templates/DECISIONS.md) | Dated decision log |
+| [templates/DECISIONS.md](templates/DECISIONS.md) | Dated decision log, one-way doors only |
 | [templates/PR_TEMPLATE.md](templates/PR_TEMPLATE.md) | Security and docs checklist (save as `.github/pull_request_template.md`) |
 
 ### Skills
 
-Four core skills (git guardrails, handoff, verification before completion, systematic debugging) are copied with their MIT licenses into [skills/third_party/](skills/third_party/). [skills/README.md](skills/README.md) lists them plus link-only skills worth knowing.
+Five core skills (git guardrails, handoff, verification before completion, systematic debugging, domain modeling) are copied with their MIT licenses into [skills/third_party/](skills/third_party/). [skills/README.md](skills/README.md) lists them plus link-only skills worth knowing.
 
 ## Core principles
 
@@ -100,6 +102,9 @@ Four core skills (git guardrails, handoff, verification before completion, syste
 - **Right model for the job.** Top model for plans and hard bugs, cheaper models for routine work and search.
 - **Parallel only as fast as you review.** Start with 2 or 3 agents, each fully isolated.
 - **Unattended means capped.** Sandbox, branch, test credentials, turn and budget limits.
+- **Ask before you build.** A short Day 0 discovery, a modular monolith by default, and a written trigger before any split.
+- **Log only one-way doors.** Hard-to-undo choices get a decision entry; everything else is decided fast.
+- **Baseline security, not security theater.** Ten cheap must-haves that run on their own; extras only when the feature exists.
 
 ## Benefits
 
@@ -114,16 +119,18 @@ Four core skills (git guardrails, handoff, verification before completion, syste
 - **Rules that always hold.** Hooks format code and block dangerous commands every time.
 - **Work while you sleep.** Overnight runs with caps and a morning report, without surprise bills.
 - **Safer agents.** No leaked secrets from prompt injection, and mistakes stay inside the sandbox.
+- **Right structure from Day 0.** A clear brief and module map before code, without microservices or heavy layers.
 
 ## How to adopt
 
 You do not need everything on day one. Start small:
 
-1. **Start from the template.** Use [agent-ready-template](https://github.com/abdurrakib0/agent-ready-template). It ships with AGENTS.md, SPEC.md, FOUNDATIONS.md, PIPELINE.md, a contracts folder and CI.
-2. **Write one spec and one AGENTS.md.** Pick your next feature, fill in [HANDOVER.md](templates/HANDOVER.md), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
-3. **Add one CI gate.** Typecheck, lint and tests on every push and PR. Block merges on failure.
-4. **Add the security gate.** Drop in the [PR template](templates/PR_TEMPLATE.md) and the shared permission guard ([practice 06](practices/06-security-gate.md)).
-5. **Grow as you need.** Add contracts, pipeline, glossary and multi-agent rules when the project or team gets bigger.
+1. **Start from the template.** Use [agent-ready-template](https://github.com/abdurrakib0/agent-ready-template). It ships with AGENTS.md, BRIEF.md, ARCHITECTURE.md, SPEC.md, FOUNDATIONS.md, DECISIONS.md, PIPELINE.md, a contracts folder, SECURITY.md and CI with a security workflow.
+2. **Run Day 0 discovery.** Answer the 8 must-ask questions and write a one-page brief and module map ([practice 24](practices/24-day0-discovery-and-architecture.md)).
+3. **Write one spec and one AGENTS.md.** Pick your next feature, fill in [HANDOVER.md](templates/HANDOVER.md), and keep AGENTS.md short ([practice 10](practices/10-tier0-agent-files.md)).
+4. **Add one CI gate.** Typecheck, lint and tests on every push and PR. Block merges on failure.
+5. **Add the security gate and baseline.** Drop in the [PR template](templates/PR_TEMPLATE.md), the shared permission guard ([practice 06](practices/06-security-gate.md)) and the 10 must-haves ([practice 25](practices/25-security-baseline.md)).
+6. **Grow as you need.** Add contracts, pipeline, glossary and multi-agent rules when the project or team gets bigger.
 
 ## Contributing
 
@@ -157,6 +164,8 @@ Practices 14 to 23, the guides and the skills list draw on public writing by the
 - OpenAI: [Harness engineering](https://openai.com/index/harness-engineering/), [Codex models](https://developers.openai.com/codex/models), [Codex non-interactive mode](https://developers.openai.com/codex/noninteractive)
 - HumanLayer: [Advanced context engineering](https://www.humanlayer.com/blog/advanced-context-engineering)
 - Skills: [mattpocock/skills](https://github.com/mattpocock/skills) (MIT), [obra/superpowers](https://github.com/obra/superpowers) (MIT), [anthropics/skills](https://github.com/anthropics/skills), [trailofbits/skills](https://github.com/trailofbits/skills)
+- Day 0 and architecture: [Shape Up](https://basecamp.com/shapeup/1.2-chapter-03), [Amazon 2015 letter (one-way and two-way doors)](https://s2.q4cdn.com/299287126/files/doc_financials/annual/2015-Letter-to-Shareholders.PDF), [Martin Fowler, MonolithFirst](https://martinfowler.com/bliki/MonolithFirst.html), [Shopify, deconstructing the monolith](https://shopify.engineering/deconstructing-monolith-designing-software-maximizes-developer-productivity), [Jimmy Bogard, vertical slices](https://www.jimmybogard.com/vertical-slice-architecture/), [Microsoft, architect role](https://learn.microsoft.com/en-us/azure/well-architected/architect-role/design-business-requirements), [C4 model](https://c4model.com/)
+- Security: [OWASP Top 10 (2025)](https://owasp.org/Top10/2025/), [OWASP Top 10 for LLM apps](https://genai.owasp.org/llm-top-10/), [OWASP cheat sheets](https://cheatsheetseries.owasp.org/), [GitHub secure use of Actions](https://docs.github.com/en/actions/reference/security/secure-use), [gitleaks](https://github.com/gitleaks/gitleaks), [Socket on slopsquatting](https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks), [Microsoft on securing agentic CI/CD](https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/), [CSA Comment and Control](https://labs.cloudsecurityalliance.org/research/csa-research-note-comment-control-github-prompt-injection-20/)
 - Reddit r/ExperiencedDevs threads on [overengineering](https://www.reddit.com/r/ExperiencedDevs/comments/1u1tgjq/the_biggest_problem_with_ai_is_not_correctness_it/) and [AI-generated test suites](https://www.reddit.com/r/ExperiencedDevs/comments/1po8uud/my_teammates_are_generating_enormous_test_suites/)
 
 ## License

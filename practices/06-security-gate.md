@@ -6,7 +6,7 @@ Agents ship working code that is not safe: missing permission checks, trusting I
 
 ## Practice
 
-Every feature, API and page passes the same gate:
+Every feature, API and page passes the same gate. For repo-wide setup (secret scanning, dependencies, headers, tokens), see the [security baseline](25-security-baseline.md).
 
 - **One shared guard.** Every server route calls `requirePermission(session, "<module>:<action>")`. No hand-rolled checks.
 - **Never trust identity from the client.** Fields like `assignedById` or `createdById` come from the session, never from the request body.
@@ -78,6 +78,8 @@ if (req.headers.get("x-cron-secret") !== process.env.CRON_SECRET) {
 - [ ] Internal pages (manuals, admin) are behind auth
 - [ ] Sensitive route: negative authz tests (no session, wrong role, other workspace)
 - [ ] Public routes listed in the allowlist with a reason
+- [ ] Rate limit on auth, OTP and costly routes
+- [ ] No raw HTML rendered without sanitizing (DOMPurify)
 
 ## Sources
 

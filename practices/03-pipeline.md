@@ -10,6 +10,7 @@ With several tasks and agents, nobody knows what is next, what is blocked, or wh
 - It lists: build order, merge order, gates, commit checkpoints, resume steps and stop rules.
 - Core gates before every merge: `typecheck`, `lint`, `test`, `check:authz`.
 - Optional gates: `check:contracts` and `check:context`. Add them only when the project is big enough to need them, and drop any gate that never catches a real problem. In a small app, shared contract types already make `typecheck` catch most drift.
+- Secret scanning and the code scanner (CodeQL or Semgrep) run as their own CI workflows, not as agent gates. Agents do not run or wait for them; a failure there blocks the merge like any other check ([practice 25](25-security-baseline.md)).
 - Agents commit at each checkpoint that passes the gates, and update PIPELINE.md in the same commit.
 - Stop rules say exactly when an agent must stop and ask the owner.
 

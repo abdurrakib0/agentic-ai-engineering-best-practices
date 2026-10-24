@@ -28,7 +28,20 @@ Prompt:
 
 > Here are the user stories and acceptance criteria for <module>. Do not write code. Ask me every question you need answered to build this without guessing. Group them by topic.
 
-Question list to cover:
+Day 0 group (new projects only, see [practice 24](24-day0-discovery-and-architecture.md)):
+
+- **Appetite:** What is the time budget, and what gets cut if we run out?
+- **Users and job:** Who is it for, and what job does it do?
+- **Future:** Which 1 to 2 year directions are likely enough to design for now?
+- **Scale:** Users, peak load, read or write heavy?
+- **Sensitive data:** Money, personal data, minors? Which laws or policies apply?
+- **Integrations:** Which outside systems?
+- **Team:** Who maintains it, and in what stack?
+- **Doors:** Which decisions are hard to reverse, and are they in DECISIONS.md?
+- **Split check:** Does any module have a named level-up trigger? If not, it stays in the monolith.
+- **Pattern check:** Does each abstraction have two real uses? If not, delete it.
+
+Question list to cover (every module):
 
 - **Who:** Which roles can do this? What does a user without permission see?
 - **Data:** Which fields are required? Limits on length, count, size?
